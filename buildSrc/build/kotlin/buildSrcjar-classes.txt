@@ -1,0 +1,1 @@
+/Users/clintpaul/AndroidStudioProjects/Cars/buildSrc/build/classes/kotlin/main/ConfigData.class:/Users/clintpaul/AndroidStudioProjects/Cars/buildSrc/build/classes/kotlin/main/Deps.class:/Users/clintpaul/AndroidStudioProjects/Cars/buildSrc/build/classes/kotlin/main/Versions.class

@@ -1,0 +1,75 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
+}
+
+android {
+    namespace 'com.clint.cars'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.clint.cars"
+        minSdk(ConfigData.minimumSdk)
+        targetSdk(ConfigData.targetSdk)
+        versionCode(ConfigData.versionCode)
+        versionName(ConfigData.versionName)
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+// Allow references to generated code
+kapt {
+    correctErrorTypes true
+}
+
+dependencies {
+
+    implementation(Deps.coreKtx)
+    implementation(Deps.appCompat)
+    implementation(Deps.material)
+    implementation(Deps.constraintLayout)
+    implementation(Deps.hiltAndroid)
+    implementation(Deps.retrofit)
+    implementation(Deps.coreSplashScreen)
+    implementation(Deps.loggingInterceptor)
+    implementation(Deps.gsonConverter)
+    implementation(Deps.viewModelLifeCycle)
+    implementation(Deps.activityKtx)
+    implementation(Deps.glide)
+    implementation(Deps.room)
+    implementation(Deps.jodaTime)
+    implementation(Deps.lottie)
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    kapt(Deps.roomCompiler)
+    annotationProcessor(Deps.glideCompiler)
+    kapt(Deps.hiltCompiler)
+    testImplementation(Deps.junit)
+    androidTestImplementation(Deps.junitAndroid)
+    androidTestImplementation(Deps.espressoAndroid)
+}
