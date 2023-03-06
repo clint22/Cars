@@ -7,6 +7,7 @@ Tech Stack
 
 * Language: Kotlin
 * Async using Kotlin Coroutines
+* Dependency injection: Dagger Hilt
 * Network library: Retrofit
 * Image Library: Glide
 * Splash screen using Splash API
